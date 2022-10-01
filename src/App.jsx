@@ -1,6 +1,8 @@
 import { useState } from 'react';
+import Dashboard from './components/dashboard.tsx';
+import './styles/main.css';
 
-function App() {
+const App = () => {
   const [data, setData] = useState();
   const [loading, setLoading] = useState(false);
 
@@ -21,12 +23,8 @@ function App() {
   }
 
   return (
-    <div>
-      <header>
-      <button onClick={getResults}>Click</button>
-      {loading && <div>Loading...</div>}
-      {data && <div>{data.log_probability}</div>}
-      </header>
+    <div className="bg-[#e8edf1] max-w-screen max-h-screen">
+      <Dashboard/>
     </div>
   );
 }
