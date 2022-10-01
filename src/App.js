@@ -23,8 +23,8 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <header className="App-header">
+    <div>
+      <header>
       <button onClick={getResults}>Click</button>
       {loading && <div>Loading...</div>}
       {data && <div>{data.log_probability}</div>}
