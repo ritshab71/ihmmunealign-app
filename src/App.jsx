@@ -1,6 +1,15 @@
 import { useState } from 'react';
-import Dashboard from './components/dashboard.tsx';
+import Dashboard from './components/dashboard';
 import './styles/main.css';
+import './styles/globals.css';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+
+const theme = createTheme({
+  typography: {
+    fontFamily: 'Montserrat',
+    fontSize: "12px"
+  }
+});
 
 const App = () => {
   const [data, setData] = useState();
@@ -23,9 +32,11 @@ const App = () => {
   }
 
   return (
-    <div className="bg-[#e8edf1] max-w-screen max-h-screen">
-      <Dashboard/>
-    </div>
+    <ThemeProvider theme={theme}>
+      <body className="w-full min-h-screen overflow-y-scroll flex justify-center items-center p-4 bg-[#e8edf1]">
+        <Dashboard/>
+      </body>
+    </ThemeProvider>
   );
 }
 
