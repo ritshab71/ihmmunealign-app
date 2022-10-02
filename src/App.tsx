@@ -3,11 +3,12 @@ import Dashboard from './components/dashboard';
 import './styles/main.css';
 import './styles/globals.css';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import React, { FC } from "react";
 
 const theme = createTheme({
   typography: {
     fontFamily: 'Montserrat',
-    fontSize: "12px"
+    fontSize: 12
   }
 });
 
