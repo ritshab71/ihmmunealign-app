@@ -1,6 +1,6 @@
-import React from "react";
+import React, { FC } from "react";
 
-const LineDivider = () => {
+const LineDivider: FC = () => {
     return (
         <div className="border border-x"/>
     );
