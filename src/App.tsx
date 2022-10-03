@@ -8,33 +8,15 @@ import React, { FC } from "react";
 const theme = createTheme({
   typography: {
     fontFamily: 'Montserrat',
-    fontSize: 12
+    fontSize: 10
   }
 });
 
 const App = () => {
-  const [data, setData] = useState();
-  const [loading, setLoading] = useState(false);
-
-  const getResults = () => {
-    setLoading(true);
-    fetch('https://ihmmunealign-api.herokuapp.com/getihmmune/', {
-      method: "GET",
-      headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-      }
-    })
-    .then(res => { return res.json(); })
-    .then(response => {
-      setData(response)
-      setLoading(false);
-    })
-  }
 
   return (
     <ThemeProvider theme={theme}>
-      <body className="w-full min-h-screen overflow-y-scroll flex justify-center items-center p-4 bg-[#e8edf1]">
+      <body className="w-full min-h-screen flex justify-center items-center p-4 bg-[#e8edf1]">
         <Dashboard/>
       </body>
     </ThemeProvider>
