@@ -37,7 +37,7 @@ const Dashboard: FC = () => {
     const runIhmmuneAlign = (inputSequence: string) => {
         setLoadingResults(true);
 
-        fetch(`http://127.0.0.1:5000/getihmmune/?sequence=${inputSequence}`, {
+        fetch(`https://ihmmunealign-api.herokuapp.com/getihmmune/?sequence=${inputSequence}`, {
             method: "GET",
             mode: 'cors',
             headers: {
