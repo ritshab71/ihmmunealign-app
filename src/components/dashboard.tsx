@@ -35,6 +35,7 @@ const Dashboard: FC = () => {
     const [isLoadingResults, setLoadingResults] = useState<boolean>(false);
 
     const runIhmmuneAlign = (inputSequence: string) => {
+        console.log('a');
         setLoadingResults(true);
 
         fetch(`https://ihmmunealign-api.herokuapp.com/getihmmune/?sequence=${inputSequence}`, {
@@ -49,17 +50,19 @@ const Dashboard: FC = () => {
         .then(res => { return res.json(); })
         .then(response => {
             const responseData: IHMMuneResponseData = response;
-            setIhmmuneAlignData(responseData)
+            setIhmmuneAlignData(responseData);
+            setLoadingResults(false);
         });
-
-        setLoadingResults(false);
     }
 
     return (
-        <div className={`flex flex-row p-4 space-x-4 w-11/12 bg-[#e8edf1] h-full ${isLoadingResults ? 'blur-sm' : ''}`}>
+        <div className={`p-4 w-11/12 bg-[#e8edf1] h-full`}>
             {isLoadingResults && <Loader/>}
-            <InputSection runIhmmuneAlign={runIhmmuneAlign}/>
-            {ihmmuneAlignData && <ResultsSection ihmmuneAlignData={ihmmuneAlignData}/>}
+            <div className={`space-x-4 flex flex-row w-full h-full ${isLoadingResults ? 'blur-sm' : ''}`}>
+                <InputSection runIhmmuneAlign={runIhmmuneAlign}/>
+                {ihmmuneAlignData && <ResultsSection ihmmuneAlignData={ihmmuneAlignData}/>}
+            </div>
+
         </div>
 
     );
