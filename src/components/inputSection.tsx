@@ -38,8 +38,9 @@ const InputSection: FC<InputSectionProps> = (props: InputSectionProps) => {
             </div>
             <div className="flex justify-center items-center">
                 <button
-                    className="bg-green-300 hover:bg-green-400 text-white text-xs py-2 px-3 rounded"
+                    className={`bg-green-300 hover:bg-green-400 text-white text-xs py-2 px-3 rounded ${!inputSequence ? 'bg-opacity-25 pointer-events-none' : ''}`}
                     onClick={handleRunIhmmuneAlign}
+                    disabled={!inputSequence}
                 >
                     iHMMUNE-align
                 </button>
