@@ -1,9 +1,8 @@
-import { useState } from 'react';
 import Dashboard from './components/dashboard';
 import './styles/main.css';
 import './styles/globals.css';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import React, { FC } from "react";
+import React from "react";
 
 const theme = createTheme({
   typography: {

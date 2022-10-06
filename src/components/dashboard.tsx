@@ -35,7 +35,6 @@ const Dashboard: FC = () => {
     const [isLoadingResults, setLoadingResults] = useState<boolean>(false);
 
     const runIhmmuneAlign = (inputSequence: string) => {
-        console.log('a');
         setLoadingResults(true);
 
         fetch(`https://ihmmunealign-api.herokuapp.com/getihmmune/?sequence=${inputSequence}`, {
@@ -62,9 +61,7 @@ const Dashboard: FC = () => {
                 <InputSection runIhmmuneAlign={runIhmmuneAlign}/>
                 {ihmmuneAlignData && <ResultsSection ihmmuneAlignData={ihmmuneAlignData}/>}
             </div>
-
         </div>
-
     );
 }
 
