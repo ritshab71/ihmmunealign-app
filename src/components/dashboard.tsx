@@ -20,14 +20,27 @@ type VGeneAlignmentInfo = {
     aln_v_gene: string,
     ums_offset: number,
     v_gene_offset: number,
-    alignment_info: AlignmentInfo
+    alignment_info: AlignmentInfo,
+    aln_visual: string
+}
+
+type JGeneAlignmentInfo = {
+    ums_no_c: string,
+    aln_ums: string,
+    j_sequence: string,
+    j_seq_name: string,
+    aln_j_gene: string,
+    ums_offset: number,
+    j_gene_offset: number,
+    aln_visual: string
 }
 
 export type IHMMuneResponseData = {
     log_probability: number,
     a_score: number,
     state_path: Array<string>,
-    v_aln_info: VGeneAlignmentInfo
+    v_aln_info: VGeneAlignmentInfo,
+    j_aln_info: JGeneAlignmentInfo
 }
 
 const Dashboard: FC = () => {
@@ -37,7 +50,7 @@ const Dashboard: FC = () => {
     const runIhmmuneAlign = (inputSequence: string) => {
         setLoadingResults(true);
 
-        fetch(`https://ihmmunealign-api.herokuapp.com/getihmmune/?sequence=${inputSequence}`, {
+        fetch(`http://127.0.0.1:5000/getihmmune/?sequence=${inputSequence}`, {
             method: "GET",
             mode: 'cors',
             headers: {
